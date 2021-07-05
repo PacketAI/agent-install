@@ -1,0 +1,53 @@
+[
+  {
+    "name": "agentd_automation",
+    "image": "public.ecr.aws/packetai/packetai-agent:v1.9.1-ms-latest",
+    "essential": true,
+    "cpu": 0,
+    "memory": 256,
+    "mountPoints": [
+      {
+        "sourceVolume": "cgroup",
+        "containerPath": "/hostfs/sys/fs/cgroup"
+      },
+      {
+        "sourceVolume": "proc",
+        "containerPath": "/hostfs/proc"
+      },
+      {
+        "sourceVolume": "dockerlogs",
+        "containerPath": "/var/lib/docker/containers"
+      },
+      {
+        "sourceVolume": "dockersocket",
+        "containerPath": "/var/run/docker.sock"
+      },
+      {
+        "sourceVolume": "logs",
+        "containerPath": "/hostfs/var/log"
+      },
+      {
+        "sourceVolume": "hostname",
+        "containerPath": "/etc/hostname"
+      },
+      {
+        "sourceVolume": "packetai",
+        "containerPath": "/etc/packetai"
+      }
+    ],
+    "environment": [
+      {
+        "name": "X_PAI_TOKEN",
+        "value": "${X_PAI_TOKEN}"
+      },
+      {
+        "name": "PAI_API_KEY",
+        "value": "${PAI_API_KEY}"
+      },
+      {
+        "name": "APIDEVURL",
+        "value": "${APIDEVURL}"
+      }
+    ]
+  }
+]
