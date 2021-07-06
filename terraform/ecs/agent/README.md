@@ -12,4 +12,4 @@
   - provide unique key for storing terraform state.
     - ex: `ecs/packetai-agent/$CLUSTER_NAME.tfstate`
 - Run: `terraform apply -var="cluster_name=$CLUSTER_NAME" -var="X_PAI_TOKEN=$X_PAI_TOKEN" -var="PAI_API_KEY=$PAI_API_KEY" -var="APIDEVURL=$APIDEVURL"`
-- To destroy, because of [#4852](https://github.com/hashicorp/terraform-provider-aws/issues/4852), we must run `aws autoscaling update-auto-scaling-group --auto-scaling-group-name "$(terraform output -raw asg_name)" --min-size 0 --desired-capacity 0` before running `terraform apply -var="cluster_name=$CLUSTER_NAME" -var="X_PAI_TOKEN=$X_PAI_TOKEN" -var="PAI_API_KEY=$PAI_API_KEY" -var="APIDEVURL=$APIDEVURL"`
+- To destroy, `terraform apply -var="cluster_name=$CLUSTER_NAME" -var="X_PAI_TOKEN=$X_PAI_TOKEN" -var="PAI_API_KEY=$PAI_API_KEY" -var="APIDEVURL=$APIDEVURL"`
