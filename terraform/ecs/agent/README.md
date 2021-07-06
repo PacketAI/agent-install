@@ -12,4 +12,4 @@
   - provide unique key for storing terraform state.
     - ex: `ecs/packetai-agent/$CLUSTER_NAME.tfstate`
 - Run: `terraform apply -var="cluster_name=$CLUSTER_NAME" -var="X_PAI_TOKEN=$X_PAI_TOKEN" -var="PAI_API_KEY=$PAI_API_KEY" -var="APIDEVURL=$APIDEVURL"`
-- To destroy, `terraform apply -var="cluster_name=$CLUSTER_NAME" -var="X_PAI_TOKEN=$X_PAI_TOKEN" -var="PAI_API_KEY=$PAI_API_KEY" -var="APIDEVURL=$APIDEVURL"`
+- To destroy, `terraform apply -var="cluster_name=$CLUSTER_NAME" -var="X_PAI_TOKEN=$X_PAI_TOKEN" -var="PAI_API_KEY=$PAI_API_KEY" -var="APIDEVURL=$APIDEVURL" -destroy`
