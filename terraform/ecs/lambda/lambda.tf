@@ -1,8 +1,11 @@
 resource "aws_lambda_function" "lambda" {
-  function_name = "ecs_cloudwatch_${var.cluster_name}"
+  function_name = "packetai_ecs_cloudwatch_${var.cluster_name}"
   role          = aws_iam_role.role.arn
-  package_type  = "Image"
-  image_uri     = "public.ecr.aws/packetai/ecslambda:v2"
+  package_type  = "Zip"
+  filename      = "ecs_python_lambda.zip"
+  source_code_hash = filebase64sha256("ecs_python_lambda.zip")
+  handler       = "lambda_function.lambda_handler"
+  runtime       = "python3.8"
 
   environment {
     variables = {
